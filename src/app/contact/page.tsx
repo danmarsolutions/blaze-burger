@@ -7,6 +7,7 @@ import {
   MapingIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import Link from "next/link";
 
 const displayItems = [
   {
@@ -82,7 +83,14 @@ export default function Contact() {
             </div>
           </div>
           <div className="flex items-center justify-start lg:justify-end">
-            <Button>Get Directions</Button>
+            <Button asChild>
+              <Link
+                href="https://maps.app.goo.gl/7taXaXSM8JsuJkTa7"
+                target="_blank"
+              >
+                Get Directions
+              </Link>
+            </Button>
           </div>
         </div>
         <iframe
