@@ -31,23 +31,30 @@ export default function Footer() {
               <span>Only serving halal</span>
             </div>
             <Link
-              href="https://g.co/kgs/k3yHHtV"
+              href="https://maps.app.goo.gl/7taXaXSM8JsuJkTa7"
+              target="_blank"
               className="flex items-center gap-2 hover:text-primary"
             >
               <HugeiconsIcon icon={MapsIcon} />
               <span>208 Queens Quay West, Toronto ON</span>
             </Link>
             <Link
-              href="tel:+14168364386"
+              href="tel:+14163680796"
+              target="_blank"
               className="flex items-center gap-2 hover:text-primary"
             >
               <HugeiconsIcon icon={Call02Icon} />
-              <span>416-836-4386</span>
+              <span>416-368-0796</span>
             </Link>
           </div>
           <div className="flex md:items-center items-start gap-2">
-            <Button size="icon">
-              <FaInstagram className="size-6" />
+            <Button size="icon" asChild>
+              <Link
+                href="https://www.instagram.com/blazeburger_"
+                target="_blank"
+              >
+                <FaInstagram className="size-6" />
+              </Link>
             </Button>
           </div>
         </div>
