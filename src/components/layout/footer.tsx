@@ -23,7 +23,7 @@ export default function Footer() {
             width={imageSizes.wordmark.width}
             height={imageSizes.wordmark.height}
             alt="Blaze Burger Wordmark"
-            className="w-auto h-8"
+            className="w-auto h-12"
           />
           <div className="flex md:flex-row flex-col gap-4 items-start md:items-center">
             <div className="flex items-center gap-2">

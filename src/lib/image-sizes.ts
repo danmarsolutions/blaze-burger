@@ -1,7 +1,7 @@
 export const imageSizes = {
   wordmark: {
-    width: 657,
-    height: 105,
+    width: 2950,
+    height: 1000,
   },
   flyingBurger: {
     width: 1506,

@@ -5,8 +5,6 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { MenuRestaurantIcon } from "@hugeicons/core-free-icons";
 
 const navItems = [
   {
@@ -38,7 +36,7 @@ export default function Navbar() {
             alt="Blaze Burger Wordmark"
             height={imageSizes.wordmark.height}
             width={imageSizes.wordmark.width}
-            className="w-auto h-8"
+            className="w-auto h-12"
             priority
           />
         </Link>
@@ -65,7 +63,6 @@ export default function Navbar() {
           size="sm"
           className="text-xs font-bold"
         >
-          <HugeiconsIcon icon={MenuRestaurantIcon} />
           View Menu
         </Button>
       </nav>
