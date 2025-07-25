@@ -4,10 +4,7 @@ import { Button } from "@/components/ui/button";
 import { imageSizes } from "@/lib/image-sizes";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  MenuRestaurantIcon,
-  StarIcon,
-} from "@hugeicons/core-free-icons";
+import { StarIcon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -74,7 +71,7 @@ export default function Home() {
               animation="blurIn"
               by="word"
               delay={0.4}
-              className="text-7xl md:text-[10rem] font-bold font-heading uppercase text-center leading-none"
+              className="text-5xl md:text-9xl font-bold font-heading uppercase text-center leading-none"
               style={{
                 textShadow:
                   "4px 4px 0 var(--color-foreground), 8px 8px 0 var(--color-background)",
@@ -87,7 +84,7 @@ export default function Home() {
               animation="blurIn"
               by="word"
               delay={0.4}
-              className="text-5xl md:text-9xl font-bold font-heading uppercase text-center leading-none"
+              className="text-3xl md:text-8xl font-bold font-heading uppercase text-center leading-none"
               style={{
                 textShadow:
                   "4px 4px 0 var(--color-foreground), 8px 8px 0 var(--color-background)",
@@ -110,14 +107,26 @@ export default function Home() {
               Gourmet halal burgers, flame-grilled to perfection in
               the heart of downtown Toronto.
             </TextAnimate>
-            <BlurFade delay={0.8} inView>
-              <Button asChild variant="default" className="font-bold">
-                <Link href="/menu">
-                  <HugeiconsIcon icon={MenuRestaurantIcon} /> View
-                  Menu
-                </Link>
-              </Button>
-            </BlurFade>
+            <div className="flex gap-2 items-center">
+              <BlurFade delay={0.8} inView>
+                <Button
+                  asChild
+                  variant="secondary"
+                  className="font-bold"
+                >
+                  <Link href="/about">About Us</Link>
+                </Button>
+              </BlurFade>
+              <BlurFade delay={0.8} inView>
+                <Button
+                  asChild
+                  variant="default"
+                  className="font-bold"
+                >
+                  <Link href="/menu">View Menu</Link>
+                </Button>
+              </BlurFade>
+            </div>
           </div>
         </div>
         <motion.div
@@ -199,7 +208,7 @@ export default function Home() {
         <div className="flex items-center h-full p-4">
           <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
             <div className="flex flex-col justify-center gap-8">
-              <h2 className="font-heading text-5xl md:text-6xl uppercase">
+              <h2 className="font-heading text-4xl md:text-6xl uppercase">
                 Premium. Halal. Unforgettable.
               </h2>
               <p className="text-lg">
@@ -245,7 +254,7 @@ export default function Home() {
         id="popular-menu"
         className="min-h-screen max-w-7xl mx-auto p-4"
       >
-        <h2 className="text-center font-heading text-5xl md:text-6xl uppercase mb-20">
+        <h2 className="text-center font-heading text-4xl md:text-6xl uppercase mb-20">
           <span
             className="text-primary"
             style={{ textShadow: "2px 2px 0 #000" }}

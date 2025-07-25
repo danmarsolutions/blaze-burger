@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Freeman, Instrument_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
@@ -21,6 +22,16 @@ const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
 });
 
+const plutoBold = localFont({
+  src: "../fonts/PlutoBold.otf",
+  variable: "--font-pluto-bold",
+});
+
+const plutoRegular = localFont({
+  src: "../fonts/PlutoRegular.otf",
+  variable: "--font-pluto-regular",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${freeman.variable} ${instrumentSans.variable} font-sans`}
+        className={`antialiased ${freeman.variable} ${instrumentSans.variable} ${plutoBold.variable} ${plutoRegular.variable} font-body`}
       >
         <Navbar />
         {children}
