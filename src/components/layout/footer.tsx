@@ -39,12 +39,12 @@ export default function Footer() {
               <span>208 Queens Quay West, Toronto ON</span>
             </Link>
             <Link
-              href="tel:+14163680796"
+              href="tel:+14163680786"
               target="_blank"
               className="flex items-center gap-2 hover:text-primary"
             >
               <HugeiconsIcon icon={Call02Icon} />
-              <span>416-368-0796</span>
+              <span>416-368-0786</span>
             </Link>
           </div>
           <div className="flex md:items-center items-start gap-2">

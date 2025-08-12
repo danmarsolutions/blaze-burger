@@ -7,8 +7,24 @@ import {
   MapingIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Metadata } from "next";
 import Link from "next/link";
 
+const description =
+  "Contact Blaze Burger for inquiries, feedback, or to learn more about our premium halal gourmet burgers. We're here to help and would love to hear from you!";
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description,
+  openGraph: {
+    title: "Contact Us | Blaze Burger",
+    images: ["/og-image.png"],
+    description,
+    url: "https://blazeburger.ca/about",
+    siteName: "Blaze Burger",
+    locale: "en-US",
+    type: "website",
+  },
+};
 const displayItems = [
   {
     icon: HalalIcon,
@@ -23,7 +39,7 @@ const displayItems = [
   {
     icon: Call02Icon,
     title: "Phone",
-    description: "416-368-0796",
+    description: "416-368-0786",
   },
   {
     icon: MapingIcon,

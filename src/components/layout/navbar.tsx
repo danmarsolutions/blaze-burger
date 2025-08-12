@@ -5,6 +5,15 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { MenuIcon } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
+import { useState } from "react";
 
 const navItems = [
   {
@@ -27,6 +36,7 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [sheetOpen, setSheetOpen] = useState(false);
   return (
     <div className="w-full bg-foreground text-background">
       <nav className="max-w-7xl mx-auto px-4 flex justify-between items-center">
@@ -61,10 +71,42 @@ export default function Navbar() {
         <Button
           variant="primary-outline"
           size="sm"
-          className="text-xs font-bold"
+          className="text-xs font-bold md:block hidden"
         >
           View Menu
         </Button>
+        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+          <SheetTrigger asChild>
+            <Button size="icon" variant="ghost" className="md:hidden">
+              <MenuIcon className="size-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent className="w-screen sm:w-screen sm:max-w-screen">
+            <SheetHeader>
+              <SheetTitle className="sr-only">
+                Navigation Menu
+              </SheetTitle>
+            </SheetHeader>
+            <div className="flex flex-col h-full w-full justify-center items-center gap-8">
+              {navItems.map((item, i) => {
+                return (
+                  <Link
+                    key={item.href + i}
+                    href={item.href}
+                    onClick={() => setSheetOpen(false)}
+                    className={cn(
+                      "text-4xl font-bold",
+                      pathname === item.href &&
+                        "border-b-4 border-primary",
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+          </SheetContent>
+        </Sheet>
       </nav>
     </div>
   );

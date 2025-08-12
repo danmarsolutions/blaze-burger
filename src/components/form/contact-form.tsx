@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -43,15 +42,13 @@ const formSchema = z.object({
       message: "Full name must not exceed 100 characters.",
     }),
 
-  email: z.string().email({
+  email: z.email({
     message: "Please enter a valid email address.",
   }),
 
   dialCode: z.string().min(1, {
     message: "Dial code is required.",
   }),
-
-  receiveMarketingEmails: z.boolean().optional(),
 
   phoneNumber: z
     .string()
@@ -87,7 +84,7 @@ export default function ContactForm() {
       dialCode: "US +1",
       phoneNumber: "",
       message: "",
-      receiveMarketingEmails: false,
+      // receiveMarketingEmails: false,
     },
   });
 
@@ -275,27 +272,27 @@ export default function ContactForm() {
             )}
           />
           {/* Checkbox */}
-          <FormField
-            control={form.control}
-            name="receiveMarketingEmails"
-            render={({ field }) => {
-              return (
-                <FormItem className="flex flex-row md:items-center gap-4">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <FormLabel className="font-normal font-albert-sans leading-5 sm:leading-4">
-                    I&apos;d like to receive trip updates, offers, and
-                    travel inspiration from Blaze Burger. (Optional
-                    for mailing list signup)
-                  </FormLabel>
-                </FormItem>
-              );
-            }}
-          />
+          {/* <FormField */}
+          {/*   control={form.control} */}
+          {/*   name="receiveMarketingEmails" */}
+          {/*   render={({ field }) => { */}
+          {/*     return ( */}
+          {/*       <FormItem className="flex flex-row md:items-center gap-4"> */}
+          {/*         <FormControl> */}
+          {/*           <Checkbox */}
+          {/*             checked={field.value} */}
+          {/*             onCheckedChange={field.onChange} */}
+          {/*           /> */}
+          {/*         </FormControl> */}
+          {/*         <FormLabel className="font-normal font-albert-sans leading-5 sm:leading-4"> */}
+          {/*           I&apos;d like to receive trip updates, offers, and */}
+          {/*           travel inspiration from Blaze Burger. (Optional */}
+          {/*           for mailing list signup) */}
+          {/*         </FormLabel> */}
+          {/*       </FormItem> */}
+          {/*     ); */}
+          {/*   }} */}
+          {/* /> */}
         </div>
         <Button
           className="text-lg font-semibold"
