@@ -5,9 +5,24 @@ import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
+const description =
+  "Savor Blaze Burger’s flame-grilled, premium halal burgers just steps from Union Station, the CN Tower & Harbourfront. The ultimate Toronto burger experience!";
 export const metadata: Metadata = {
-  title: "Blaze Burger",
-  description: "Savour the blaze your crave.",
+  title: {
+    template: "%s | Blaze Burger",
+    default: "Blaze Burger",
+    absolute: "Home | Blaze Burger",
+  },
+  description,
+  openGraph: {
+    title: "Blaze Burger",
+    images: ["/og-image.png"],
+    description,
+    url: "https://blazeburger.ca",
+    siteName: "Blaze Burger",
+    locale: "en-US",
+    type: "website",
+  },
 };
 
 const freeman = Freeman({

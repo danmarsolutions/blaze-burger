@@ -1,4 +1,21 @@
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+
+const description =
+  "Learn more about Blaze Burger's journey to bringing premium halal gourmet burgers to Toronto. Discover our commitment to quality, bold flavours, and fire-grilled perfection.";
+export const metadata: Metadata = {
+  title: "About Us",
+  description,
+  openGraph: {
+    title: "About Us | Blaze Burger",
+    images: ["/og-image.png"],
+    description,
+    url: "https://blazeburger.ca/about",
+    siteName: "Blaze Burger",
+    locale: "en-US",
+    type: "website",
+  },
+};
 
 export default function About() {
   return (

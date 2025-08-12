@@ -8,53 +8,9 @@ import { StarIcon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import { TextAnimate } from "@/components/magicui/text-animate";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { menuItems } from "@/lib/menu-items";
 
-type MenuItem = {
-  name: string;
-  description: string;
-  rating: number;
-  price: number;
-  image: string;
-  size: { width: number; height: number };
-};
-const popularItems: MenuItem[] = [
-  {
-    name: "Blaze Classic",
-    description:
-      "A classic burger with lettuce, tomato, and our special sauce.",
-    rating: 4.4,
-    price: 9.99,
-    image: "/cheeseburger.jpg",
-    size: imageSizes.cheeseburger,
-  },
-  {
-    name: "Double Blaze Burger",
-    description:
-      "Two flame-grilled patties stacked high with cheese, lettuce, tomato, and our special sauce.",
-    rating: 4.9,
-    price: 17.99,
-    image: "/double-cheeseburger.jpg",
-    size: imageSizes.doubleCheeseburger,
-  },
-  {
-    name: "Cheese Burger",
-    description:
-      "A juicy beef patty topped with melted cheese, lettuce, tomato, and our signature sauce.",
-    rating: 4.6,
-    price: 10.99,
-    image: "/cheeseburger.jpg",
-    size: imageSizes.cheeseburger,
-  },
-  {
-    name: "Triple Blaze Burger",
-    description:
-      "Three flame-grilled patties with triple cheese, lettuce, tomato, and our special sauce.",
-    rating: 4.5,
-    price: 20.99,
-    image: "/double-cheeseburger.jpg",
-    size: imageSizes.doubleCheeseburger,
-  },
-];
+const popularItems = menuItems["beef-burgers"].slice(0, 4);
 
 export default function Home() {
   return (
@@ -278,26 +234,33 @@ export default function Home() {
         </h2>
         <div className="grid md:grid-cols-4 grid-cols-1 gap-8">
           {popularItems.map((item, index) => {
+            const price = item.options?.[0]?.price || undefined;
             return (
               <div key={index} className="w-full flex flex-col gap-6">
-                <Image
-                  alt={`Image of ${item.name}`}
-                  src={item.image}
-                  width={item.size.width}
-                  height={item.size.height}
-                  className="w-full h-96 object-cover rounded-xl"
-                />
+                {item.image && (
+                  <div className="relative h-[700px] w-full rounded-lg overflow-hidden bg-primary/75">
+                    <Image
+                      alt={item.name}
+                      src={item.image}
+                      fill
+                      objectFit="cover"
+                      objectPosition="center"
+                    />
+                  </div>
+                )}
                 <div className="flex justify-between items-start gap-2 h-full">
-                  <div className="flex flex-col justify-between h-full">
+                  <div className="flex flex-col h-full">
                     <div>
                       <h3 className="text-2xl leading-none font-bold mb-2">
                         {item.name}
                       </h3>
                       <p className="mb-4">{item.description}</p>
                     </div>
-                    <span className="text-3xl font-heading">
-                      ${item.price} CAD
-                    </span>
+                    {price && (
+                      <span className="text-3xl font-heading">
+                        ${price} CAD
+                      </span>
+                    )}
                   </div>
                   <Badge className="flex items-center gap-1">
                     <span className="block">{item.rating}</span>
