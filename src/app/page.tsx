@@ -52,7 +52,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-8">
             <TextAnimate
               as="p"
-              className="text-center text-lg md:text-xl"
+              className="text-center text-base md:text-xl"
               style={{
                 textShadow: "2px 2px 0 var(--color-foreground)",
               }}
@@ -238,7 +238,7 @@ export default function Home() {
             return (
               <div key={index} className="w-full flex flex-col gap-6">
                 {item.image && (
-                  <div className="relative h-[700px] w-full rounded-lg overflow-hidden bg-primary/75">
+                  <div className="relative h-[500px] md:h-96 w-full rounded-lg overflow-hidden bg-primary/75">
                     <Image
                       alt={item.name}
                       src={item.image}
@@ -248,7 +248,7 @@ export default function Home() {
                     />
                   </div>
                 )}
-                <div className="flex justify-between items-start gap-2 h-full">
+                <div className="flex justify-between items-start gap-2">
                   <div className="flex flex-col h-full">
                     <div>
                       <h3 className="text-2xl leading-none font-bold mb-2">
@@ -257,7 +257,7 @@ export default function Home() {
                       <p className="mb-4">{item.description}</p>
                     </div>
                     {price && (
-                      <span className="text-3xl font-heading">
+                      <span className="text-3xl font-heading block">
                         ${price} CAD
                       </span>
                     )}
