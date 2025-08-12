@@ -52,7 +52,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-8">
             <TextAnimate
               as="p"
-              className="text-center text-lg md:text-xl"
+              className="text-center text-base md:text-xl"
               style={{
                 textShadow: "2px 2px 0 var(--color-foreground)",
               }}
